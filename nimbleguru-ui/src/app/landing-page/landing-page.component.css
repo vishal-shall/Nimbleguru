@@ -1,0 +1,67 @@
+.navbar{
+    justify-content: space-between;
+}
+
+mat-grid-list{
+    margin-left: 100px;
+    margin-right: 100px;
+} 
+
+mat-list h1{
+    font-size:3rem;
+    font-weight: 900;
+    color: rgb(12, 5, 51)
+
+}
+mat-list p{
+    font-size: 1.25rem;
+    color: #323648;
+}
+
+.tile-image{
+    width: 100%;
+    height: auto;
+    
+}
+footer {
+    background: teal;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+/* media query for responsive page */
+@media (max-width: 767.98px) { 
+    mat-grid-list{
+        margin-left: 0px;
+        margin-right: 0px;
+    } 
+    .tile-image{
+        width: 100%;
+        height: auto;
+    }
+    mat-list h1{
+        font-size:1.5rem;
+    }
+    mat-list p{
+        font-size: 1.1rem;
+    }
+    footer{
+        margin-top: 100px;
+    }
+    img{
+        background-repeat: initial;
+    }
+ }
+ #bar1{
+     cursor: pointer;
+ }
+ #bar1:focus{
+    outline:none;
+    }
+    #bar1:hover{
+        outline:none;
+        cursor: pointer;
+        }
+
+

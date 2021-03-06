@@ -1,0 +1,50 @@
+.navbar {
+    justify-content: space-between;
+}
+
+span {
+    margin-right: 1rem;
+  }
+  button.mat-menu-item{
+    outline: none;
+  }
+  #bar1:focus{
+    outline:none;
+    }
+    #bar1:hover{
+        outline:none;
+        cursor: pointer;
+        }
+
+footer {
+    background: teal;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+mat-card {
+    height: 70%;
+    margin: 5px;
+    width: 800px;
+}
+
+mat-card :hover {
+    background: white;
+}
+#abc:hover{
+    cursor: pointer;
+  }
+  #abc:focus{
+    outline: none;
+  }
+
+  #xyz:hover{
+    outline: none;
+    cursor: pointer;
+    background-color:white ;
+  }

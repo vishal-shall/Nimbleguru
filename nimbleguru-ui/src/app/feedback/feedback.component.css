@@ -1,0 +1,53 @@
+.navbar{
+    justify-content: space-between;
+    
+}
+span{
+    margin-right: 1rem;
+}
+footer {
+    background: teal;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.rating-list li {
+    float: right;
+    color: #ddd;
+    padding: 10px 5px;
+  
+  }
+  
+  .rating-list li:hover,
+  .rating-list li:hover ~ li, .rating-list li.selected {
+    color: #ffd700;
+  }
+  
+  .rating-list {
+    display: inline-block;
+    list-style: none;
+  }
+  footer {
+    background: teal;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  button.mat-menu-item{
+    outline: none;
+  }
+  #bar1:focus{
+    outline:none;
+    }
+    #bar1:hover{
+        outline:none;
+        cursor: pointer;
+        }
+
+        #abc:hover{
+          cursor: pointer;
+        }
+        #abc:focus{
+          outline: none;
+        }
+  

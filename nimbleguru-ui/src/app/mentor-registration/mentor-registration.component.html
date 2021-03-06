@@ -1,0 +1,90 @@
+<header>
+    <mat-toolbar color="primary" class="navbar">
+        <span routerLink="" id="bar1" style="margin-left: 5px;"><img src="/assets/img/header.png" width="60px"
+            height="60px">Nimbleguru</span>    </mat-toolbar>
+
+</header>
+<div class="main-div">
+    <mat-card>
+        <mat-card-title style="margin-left:150px ; margin-bottom: 50px; margin-top:20px ;">Let's first create your profile!</mat-card-title>
+        <form [formGroup]="updateForm" (ngSubmit)="updateForm.valid" novalidate>
+            <mat-grid-list [cols]="2" rowHeight="300px">
+                <mat-grid-tile>
+                    <div class="form-container">
+                        <div class="id">
+                            <mat-form-field>
+                                <input id="email" matInput disabled formControlName="email" placeholder="Enter your Email" />
+                            </mat-form-field>
+                        </div>
+                        <div class="id">
+                            <mat-form-field>
+                                <input id="name" matInput formControlName="name" [(ngModel)]="mentor.name" placeholder="Enter your name" />
+                            </mat-form-field>
+                        </div>
+                        <div class="id">
+                            <mat-form-field>
+                                <input id="phoneNumber" matInput formControlName="phoneNumber" [(ngModel)]="mentor.phoneNumber" placeholder="Enter your phoneNumber" />
+                            </mat-form-field>
+                        </div>
+                        <div class="id">
+                            <mat-form-field>
+                                <mat-label>Select subject</mat-label>
+                                <mat-select formControlName="subject" [(ngModel)]="mentor.subject" multiple>
+                                    <mat-option *ngFor="let subject1 of subjects" [value]="subject1">
+                                        {{subject1}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <!-- <mat-form-field>
+                               <input id="email" matInput formControlName="email"
+                                   [(ngModel)]="mentor.email" placeholder="Enter your email" />
+                           </mat-form-field> -->
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <div class="form-container">
+
+                        <div class="id">
+                            <mat-form-field>
+                                <mat-label>I will be available from</mat-label>
+                                <mat-select formControlName="startTime">
+                                    <mat-option *ngFor="let times of time11" [value]="times">
+                                        {{times}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="id">
+                            <mat-form-field>
+                                <mat-label>I will be available upto</mat-label>
+                                <mat-select formControlName="endTime">
+                                    <mat-option *ngFor="let times1 of time11" [value]="times1">
+                                        {{times1}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="id">
+                            <mat-form-field>
+                                <input id="class" matInput formControlName="qualification" placeholder="Enter your Qualification" />
+                            </mat-form-field>
+                        </div>
+                        <div class="bottomrow" style="margin-left: 140px;">
+                            <button mat-button routerLink="/mentor-profile" type="submit" class="mat-raised-button mat-primary" (click)="OnSave()" [disabled]="!updateForm.valid">Save Changes</button>
+                        </div>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>
+<!-- footer section start here -->
+<footer style="color: white;">
+    <div>Copyright © Sergbo All rights reserved.</div>
+    <div>
+        <a style="color: white;" href="">Privacy Statement  </a>
+        <a style="color: white;" href="">Terms of Use</a>
+    </div>
+  </footer>
+  <!-- footer section end here -->

@@ -1,0 +1,62 @@
+footer{
+  height: 150px;
+  background-color: teal;
+}
+footer ul{
+  list-style-type: none;
+}
+#abc{
+  width: 200px;
+}
+mat-card{
+  width: 800px;
+}
+#user{
+  align-items: center;
+}
+mat-card :hover{
+  background: #A79344;
+}
+.video-player-wrapper {
+  max-width: 800px;
+  max-height: 500px;
+  text-align: center;
+  margin: 0 auto;
+
+}
+
+.player-list {
+ margin: 0;
+ padding: 0;
+}
+
+.player-list li {
+ list-style: none;
+ padding: 15px 35px;
+ display: block;
+ background: #cccc;
+ cursor: pointer;
+ text-align: left;
+ margin-bottom: 1px;
+}
+
+li.selected {
+  background: #03A9F4 !important;
+}
+.vg-player{
+  padding-top: 0%;
+  margin-top: 0%;
+}
+#myButton{
+  margin-left: 520px;
+}
+
+#accimg{
+  font-size: 150px;
+}
+#info{
+width: 150px;
+}
+#rep{
+  width:200px;
+}

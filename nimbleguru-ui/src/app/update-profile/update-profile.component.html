@@ -1,0 +1,76 @@
+<div id="close" (click)="Onclose()">
+    <h2>X</h2>
+</div>
+<mat-card>
+    <mat-card-title style="margin-left: 20px;">
+
+        Update Profile
+
+    </mat-card-title>
+
+
+    <form [formGroup]="updateForm" (ngSubmit)="updateForm.valid" novalidate>
+        <mat-grid-list [cols]="2" rowHeight="300px">
+            <mat-grid-tile>
+                <div class="form-container">
+                    <mat-form-field>
+                        <input id="email" matInput disabled formControlName="email" readonly="true"
+                            placeholder="Enter your Email" />
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input id="name" matInput formControlName="name" [(ngModel)]="mentor.name"
+                            placeholder="Enter your name" />
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input id="phoneNumber" matInput formControlName="phoneNumber" [(ngModel)]="mentor.phoneNumber"
+                            placeholder="Enter your phoneNumber" />
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Select subject</mat-label>
+                        <mat-select formControlName="subject" [(ngModel)]="mentor.subject" multiple>
+                            <mat-option *ngFor="let subject1 of subjects" [value]="subject1">
+                                {{subject1}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div class="form-container">
+                    <mat-form-field >
+                        <mat-label>I will be available from</mat-label>
+                        <mat-select formControlName="startTime">
+                            <mat-option *ngFor="let times of time11" [value]="times">
+                                {{times}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>I will be available upto</mat-label>
+                        <mat-select formControlName="endTime">
+                            <mat-option *ngFor="let times1 of time11" [value]="times1">
+                                {{times1}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input id="class" matInput formControlName="qualification"
+                            placeholder="Enter your Qualification" />
+                    </mat-form-field>
+                    <!-- <span class="bottomrow" style="margin-left: 80px;">
+                            <button mat-button type="submit" class="mat-raised-button mat-primary" (click)="OnUpdate()"
+                                [disabled]="!updateForm.valid">Update Profile</button>
+                        </span> -->
+                    <!-- <span class="bottomrow" style="margin-left:200px ;">
+                            <button mat-button type="close" class="mat-raised-button mat-primary" 
+                                >close</button>
+                        </span> -->
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+    <span class="bottomrow" style="margin-left: 650px;">
+        <button mat-button type="submit" class="mat-raised-button mat-primary" (click)="OnUpdate()"
+            [disabled]="!updateForm.valid">Update Profile</button>
+    </span>
+</mat-card>

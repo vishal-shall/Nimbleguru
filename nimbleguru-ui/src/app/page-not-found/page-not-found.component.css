@@ -1,0 +1,40 @@
+h1,h2,.wrapper{
+    text-align: center;
+}
+.videoInsert{
+    width: 30%;
+}
+h1{
+    margin-top: 10%;
+}
+button{
+margin-left: 45%;
+}
+a{
+    text-decoration: none;
+}
+#bar1:focus{
+    outline:none;
+    }
+    #bar1:hover{
+        outline:none;
+        cursor: pointer;
+        }
+
+@media (max-width: 700px) { 
+
+    button{
+        size: 10%;
+    }
+    h1, h2{
+        font-size: 100%;
+        align-items: center;
+    }
+    .videoInsert{
+        width: 50%;
+    }
+    button{
+        margin-left: 35%;
+        }
+
+ }

@@ -1,0 +1,121 @@
+
+    
+<header>
+    
+    <mat-toolbar color="primary" class="navbar" >
+        <span routerLink="" id="bar1" style="width: 30%;"><img src="/assets/img/header.png"  width="50px" height="50px">Nimbleguru</span>
+
+        <!-- <span routerLink="" id="bar1" style="margin-left: 5px;" class="video-player" >     
+                <video [vgMedia]="media" #media id="singleVideo" width="60px" height="55px" preload="auto"
+                crossorigin loop autoplay onmouseout="this.pause();" >
+                 
+                      <source src="/assets/img/video.mp4">
+                </video><span style="vertical-align: 25px;">Nimbleguru</span>
+        </span> -->
+
+
+
+        <!-- <div class="video-player">
+            <div>
+                <video [vgMedia]="media" #media id="singleVideo" preload="auto"
+                 crossorigin loop onmouseover="this.play()" onmouseout="this.pause();" >
+                      <source src="/assets/img/logo1.mp4">
+                </video>
+            </div>
+        </div> -->
+
+          <!-- <span routerLink="">Nimbleguru</span> -->
+          <div>
+            <span><button routerLink="/student-registration" mat-raised-button>Register</button></span>
+        </div>
+        <!-- <div class="wrapper">
+            <video class="videoInsert" preload="auto"
+            crossorigin loop onmouseover="this.play()" onmouseout="this.pause();">
+            <source src="/assets/img/logo1.mp4" type="video/mp4">
+           </video>
+          </div> -->
+      
+    </mat-toolbar>
+</header>
+
+
+    <body>
+            <mat-grid-list [cols]="breakpoint" rowHeight="1:1" (window:resize)="onResize($event)">
+    <mat-grid-tile>
+        <img alt="Logo" src="/assets/img/LogoSerbo-Recovered copy.png " style="width: 55%;">
+        <!-- <div class="video-player-wrapper">
+        <vg-player>
+            <div>
+                <video [vgMedia]="media" #media width ='800px'id="singleVideo" preload="auto"
+                 crossorigin loop onmouseover="this.play()" onmouseout="this.pause();" >
+                      <source src="/assets/img/Logo video.mp4">
+                </video>
+            </div>
+        </vg-player>
+        </div> -->
+                <!-- <div class="wrapper">
+            <video class="videoInsert" preload="auto"
+            crossorigin loop onmouseover="this.play()" onmouseout="this.pause();">
+            <source src="/assets/img/Logo video.mp4 " type="video/mp4">
+           </video>
+          </div> -->
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+        <mat-card style="width:330px;">
+            <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid  &&  Login()" novalidate>
+                <div class="form-container">
+                    <mat-list>
+                        <mat-list-item > <h1 style="font-weight: 500;">Log in</h1></mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-form-field style="width:300px;">
+                                <input id="email" matInput formControlName="email" [(ngModel)]="user.email"
+                                    placeholder="Enter your Email" />
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+
+                            <mat-form-field style="width:300px;">
+                                <input id="password" matInput formControlName="password" [(ngModel)]="user.password"
+                                    placeholder="Enter your password" [type]="hide ? 'password': 'text'" />
+                                <mat-icon matSuffix (click)="hide= !hide">
+                                    {{hide ? 'visibility': 'visibility_off'}}
+                                </mat-icon>
+                            </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+
+                            <button  mat-button type="submit" class="mat-raised-button mat-primary "
+                             [disabled]="!loginForm.valid">Login</button>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <h3 (click)="gotoregisteration()">New to Nimbleguru? Register <a routerLink="student-registration">here</a></h3>
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+            </form>
+        </mat-card>
+
+    </mat-grid-tile>
+</mat-grid-list>
+    <!-- footer section start here -->
+    <footer style="color: white;">
+        <div>Copyright © Sergbo All rights reserved.</div>
+        <div>
+            <a style="color: white;" href="">Privacy Statement  </a>
+            <a style="color: white;" href="">Terms of Use</a>
+        </div>
+    </footer> <!-- footer section end here -->
+</body>
+
+    <!-- <div class="video-player-wrapper">
+        <vg-player>
+            <div>
+                <video [vgMedia]="media" #media width ='800px'id="singleVideo" preload="auto"
+                 crossorigin loop onmouseover="this.play()" onmouseout="this.pause();" >
+                      <source src="/assets/img/Logo video.mp4">
+                </video>
+            </div>
+        </vg-player>
+        </div> -->

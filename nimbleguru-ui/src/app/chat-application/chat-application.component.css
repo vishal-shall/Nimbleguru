@@ -1,0 +1,99 @@
+.chat-container{
+  float: middle;
+
+  height: 29vw;
+  width: 70vw;
+  overflow: scroll;
+  overflow-x: hidden;
+  background: white;
+
+  margin-left: 250px;
+}
+button.mat-menu-item{
+  outline: none;
+}
+.navbar{
+
+  justify-content: space-between;
+}
+.chat{
+  text-align: left;
+  margin: 0 ;
+  width: 80%;
+  height: 100%;
+  background: white;
+
+}
+
+/* .footer{
+  background: white;
+  margin: 0 auto;
+
+  bottom: 0;
+  height: 10vh;
+  width: 100vw;
+} */
+h1{
+  padding-top: 40px;
+}
+.send-button{
+  margin: 0 auto;
+  height: 70%;
+  width: 50%;
+  
+}
+#input{
+  float: middle;
+  height: 80px;
+  border-radius: 15px;
+  font-size: 1.5em;
+  width: 600px;
+  margin-bottom: 10px;
+}
+#input:focus{
+  cursor: pointer;
+  outline: none;
+}
+
+/* .send{
+  float: middle;
+  background: url("../../assets/img/send.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  margin-left: 330px;
+  margin-top: 10px;
+
+} */
+footer {
+  background: teal;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+#abc:hover{
+  cursor: pointer;
+}
+#abc:focus{
+  outline: none;
+}
+button.mat-menu-item{
+  outline: none;
+}
+#asdf{
+  height: 50px;
+  margin-left: 10px;
+  width: 70px;
+}
+.class-button{
+  justify-content: space-between;
+}
+#bar1:focus{
+  outline:none;
+  }
+  #bar1:hover{
+      outline:none;
+      cursor: pointer;
+      }
+

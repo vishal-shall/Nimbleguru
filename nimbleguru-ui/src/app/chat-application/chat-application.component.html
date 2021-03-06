@@ -1,0 +1,63 @@
+<header>
+  <mat-toolbar color="primary" class="navbar">
+
+      <span routerLink="/" id="bar1" style="width: 30%;"><img src="/assets/img/header.png" width="50px"
+              height="50px">Nimbleguru</span>
+      <span style="font-size: 70%;">{{name}} 
+        <button mat-button [matMenuTriggerFor]="menu" #menuTrigger id="abc">
+        <div
+            style="width: 40px; height: 40px;background-color:#95DBEF ; border-radius: 20px; margin-right: 12px;">
+
+            <div style="font-size: 17px; padding: 7px; padding-top: 3px; color: black;">{{avatar}}</div>
+        </div>
+    </button>
+          <mat-menu #menu="matMenu">
+              <button mat-menu-item routerLink="/student-profile">Profile</button>
+              <button mat-menu-item routerLink="/" (click)="Logout()">Logout</button>
+
+          </mat-menu>
+      </span>
+      <!-- <span style="float: right;margin-left: 78%;">{{name}}</span><i class="fa fa-user-circle fa-2x" routerLink="/student-profile" id="circle"></i>     -->
+      <!-- <button mat-raised-button color="accent" routerLink="/login" (click)="Logout()">Logout</button> -->
+  </mat-toolbar>
+</header>
+<body style="background-image:url('/assets/img/BG.png') ;">
+
+<div style="text-align:center">
+  <h1 style="font-weight: 600;">
+    Conversation
+  </h1>
+  <div class="chat-container">
+    <div class="chat"  style="background-color: white ;">
+      <div  class="message"></div>
+    </div>
+
+</div>
+
+
+
+<div  style=" padding: 15px 0px 0px 0px;">
+  <div class="send-button">
+
+
+    <input  id="input" placeHolder="Type Message Here" type="text" #input>
+    <button mat-raised-button color="primary" id='asdf' (click)="sendMessage(input.value)">Send
+    </button>
+
+  </div>
+
+</div>
+<button id="myButton" mat-raised-button color="warn" (click) = "onClick($event)">End Chat</button>
+
+
+</div>
+</body>
+<!-- footer section start here -->
+<footer style="color: white;">
+  <div>Copyright © Sergbo All rights reserved.</div>
+  <div>
+      <a style="color: white;" href="">Privacy Statement  </a>
+      <a style="color: white;" href="">Terms of Use</a>
+  </div>
+</footer>
+<!-- footer section end here -->

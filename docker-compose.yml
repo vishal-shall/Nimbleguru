@@ -1,0 +1,132 @@
+version: '2'
+
+services:
+  eureka-server:
+    build: eureka-server/
+    container_name: eureka-server
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8761:8761
+
+  config-server:
+    build: config-server/
+    container_name: config-server
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8888:8888
+
+  api-gateway:
+    build: api-gateway/
+    container_name: api-gateway
+    depends_on:
+      - config-server
+      - eureka-server
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8080:8080
+
+
+
+  authentication-service:
+    build: authentication-service/
+    container_name: authentication-service
+    depends_on:
+      - config-server
+      - eureka-server
+    restart: always
+    network_mode: "host"
+    hostname: "localhost"
+    ports:
+      - 8081:8081
+
+  mysql:
+    image: mysql:latest
+    container_name: "mysql-service"
+    restart: always
+    network_mode: "host"
+    volumes:
+    - $HOME/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: P@ssw0rd
+      MYSQL_USER: root
+      MYSQL_PASSWORD: P@ssw0rd
+    ports:
+        - 3306:3306
+
+
+  mongo:
+    image: mongo:latest
+    container_name: "mongo-service"
+    restart: always
+    volumes:
+      - $HOME/mongo:/data/db
+
+    network_mode: "host"
+    ports:
+      - 27017:27017
+
+
+  mentor-profile-service:
+    build: mentor-profile-service/
+    container_name: mentor-profile-service
+    restart: always
+    depends_on:
+      - mongo
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8082:8082
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: "rabbit"
+    restart: always
+    hostname: localhost
+
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+    network_mode: "host"
+
+
+  student-profile-service:
+    build: Student-Profile-Service
+    container_name: student-profile-service
+    restart: always
+    ports:
+      - 8086:8086
+    depends_on:
+      - mongo
+    network_mode: "host"
+    hostname: localhost
+  
+  nimbleguru-ui:
+    build: nimbleguru-ui/
+    container_name: nimbleguru-ui
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 4200:4200
+
+  mentor-platform-service:
+    build: mentor-platform-service
+    container_name: mentor-platform-service
+    restart: always
+    ports:
+      - 8089:8089
+    depends_on:
+      - mongo
+    network_mode: "host"
+    hostname: localhost
+  
+
+
+

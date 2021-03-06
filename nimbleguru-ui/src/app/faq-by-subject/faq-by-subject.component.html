@@ -1,0 +1,66 @@
+<!-- Header section start here -->
+<header>
+    <mat-toolbar color="primary" class="navbar">
+
+        <span routerLink="" id="bar1" style="margin-left: 5px;"><img src="/assets/img/header.png" width="60px"
+                height="60px">Nimbleguru</span>
+                <span style="font-size: 70%;">{{name}} 
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger id='abc'>
+                    <div
+                        style="width: 40px; height: 40px;background-color:#95DBEF ; border-radius: 20px; margin-right: 12px;">
+            
+                        <div style="font-size: 17px; padding: 7px; padding-top: 3px; color: black;">{{avatar}}</div>
+                    </div>
+                </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="/student-profile">Profile</button>
+                <button mat-menu-item routerLink="/" (click)="Logout()">Logout</button>
+
+            </mat-menu>
+        </span>
+        <!-- <span style="float: right;margin-left: 78%;">{{name}}</span><i class="fa fa-user-circle fa-2x" routerLink="/student-profile" id="circle"></i>     -->
+        <!-- <button mat-raised-button color="accent" routerLink="/login" (click)="Logout()">Logout</button> -->
+    </mat-toolbar>
+</header>
+<body>
+    
+
+<mat-list-item role="listitem" style="height: auto;" >
+   <h1 style="text-align: center;">Frequently Asked Questions</h1>
+    
+   <mat-card *ngFor="let f of faq">Query: {{f?.query}}
+        <div mat-line>Solution: {{f?.solution}}</div>
+    </mat-card>
+    <!-- <mat-card>Query
+        <div mat-line>Solution</div>
+    </mat-card>
+    <mat-card>Query
+        <div mat-line>Solution</div>
+    </mat-card>
+    <mat-card>Query
+        <div mat-line>Solution</div>
+    </mat-card>
+    <mat-card>Query
+        <div mat-line>Solution</div>
+    </mat-card>
+    <mat-card>Query
+        <div mat-line>Solution</div>
+    </mat-card>
+    <mat-card>Query
+        <div mat-line>Solution</div>
+    </mat-card>
+    <mat-card>Query
+        <div mat-line>Solution</div>
+    </mat-card> -->
+</mat-list-item>
+
+<!-- footer section start here -->
+<footer style="color: white; ">
+    <div>Copyright © Sergbo All rights reserved.</div>
+    <div>
+        <a style="color: white;" href="">Privacy Statement </a>
+        <a style="color: white;" href="">Terms of Use</a>
+    </div>
+</footer>
+<!-- footer section end here -->
+</body>

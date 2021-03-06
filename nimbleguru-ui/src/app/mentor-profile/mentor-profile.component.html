@@ -1,0 +1,124 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<header>
+    <mat-toolbar color="primary" class="navbar">
+        <span routerLink="/" id="bar1" style="margin-left: 5px;"><img src="/assets/img/header.png" width="60px"
+                height="60px">Nimbleguru</span>
+        <span style="font-size: 70%;">{{name}}
+            <button mat-button [matMenuTriggerFor]="menu" #menuTrigger id='abc'>
+                <div
+                    style="width: 40px; height: 40px;background-color:#95DBEF ; border-radius: 20px; margin-right: 12px;">
+
+                    <div style="font-size: 17px; padding: 7px; padding-top: 3px; color: black;">{{avatar}}</div>
+                </div>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="/mentor-profile">Profile</button>
+                <button mat-menu-item routerLink="/" (click)="Logout()">Logout</button>
+
+            </mat-menu>
+        </span>
+        <!-- <span style="float: right;margin-left: 78%;">{{name}}</span><i class="fa fa-user-circle fa-2x" routerLink="/student-profile" id="circle"></i>     -->
+        <!-- <button mat-raised-button color="accent" routerLink="/login" (click)="Logout()">Logout</button> -->
+    </mat-toolbar>
+</header>
+
+<body>
+    <mat-grid-list cols="12" rowHeight="100%">
+        <mat-grid-tile colspan="3">
+            <mat-grid-tile-header style="background-color: black;">My Profile</mat-grid-tile-header>
+            <mat-list role="list">
+                <!-- <button mat-raised-button color="primary" routerLink="/chat" *ngFor="let message of messageHistory">{{message}}</button>  -->
+                <mat-list-item role="listitem">
+                    <div
+                        style="width: 100px; height: 100px;background-color:#95DBEF ; border-radius: 50px;margin-bottom: 30px; margin-left: 50px;">
+
+                        <div style="font-size: 60px; padding: 30px; padding-top: 3px; color: black;">{{avatar}}</div>
+                    </div>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+
+                </mat-list-item>
+                <mat-list-item role="listitem" #name1>
+                    <h2><strong>Name :</strong> {{mentor?.name}}</h2>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <h2><strong> Phone Number : </strong>{{mentor?.phoneNumber}} </h2>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <h2><strong> Email :</strong> {{mentor?.email}}</h2>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <h2><strong>Subject :</strong> {{mentor?.subject}}</h2>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <h2><strong>Qualification :</strong> {{mentor?.qualification}} </h2>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <h2><strong>Rating :</strong> {{mentor?.rating}} </h2>
+                </mat-list-item>
+                <!-- <mat-list-item role="listitem">
+          <h2>Time :{{mentor?.time.startTime}} - {{mentor?.time.endTime}} </h2>
+        </mat-list-item> -->
+                <mat-list-item role="listitem">
+                    <button mat-raised-button (click)=OnCreate() color="primary">Update Profile</button>
+                </mat-list-item>
+            </mat-list>
+        </mat-grid-tile>
+
+
+
+        <mat-grid-tile colspan="9">
+            <mat-grid-tile-header style="background-color: black;">My Previous Connects</mat-grid-tile-header>
+            <mat-list role="list" id="list1">
+                <mat-list-item role="listitem" style="height: auto; margin-left: 37.5%;">
+                </mat-list-item>
+                <!-- <div *ngFor = "let session of mentor?.sessions"> -->
+                <div *ngIf="sessionArray.length!=0; then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>
+                    <div class="scrollable">
+                        <mat-card class="example-session" *ngFor="let session of obs | async">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image"></div>
+                                <mat-card-title>{{session.query.charAt(0).toUpperCase() + session.query.substr(1)}}
+                                </mat-card-title>
+                                <mat-card-subtitle>Subject:&nbsp;{{session.subject}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    MentorEmail:&nbsp;{{session.teacherEmail}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <span>
+                                    <button style="float: right; margin-bottom: 100px;" mat-button><i
+                                            class="fa fa-play-circle fa-3x"
+                                            [routerLink]="['/history', session.sessionId]"></i></button>
+                                </span>
+                                <span>
+                                    <!-- <p>Subject:{{session.subject}} MentorEmail:{{session.teacherEmail}}</p> -->
+                                    <p>Duration:&nbsp;{{session.duration}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Taken
+                                        on:&nbsp;{{session.startTime | date:'dd MMM, yyyy'}}</p>
+                                </span>
+                            </mat-card-content>
+                        </mat-card>
+
+                        <mat-paginator [pageSizeOptions]="[3, 10, 25, 100]"></mat-paginator>
+                    </div>
+                </ng-template>
+                <ng-template #elseBlock><div style="font-size: 26px; font-weight: 600;">
+                    You haven't taken any session yet!!</div><div style="font-size: 26px;"> Please wait, we will be redirecting a student to you soon.</div></ng-template>
+
+            </mat-list>
+        </mat-grid-tile>
+    </mat-grid-list>
+</body>
+
+<!-- footer section start here -->
+<footer style="color: white;">
+    <div>Copyright © Sergbo All rights reserved.</div>
+    <div>
+        <a style="color: white;" href="">Privacy Statement </a>
+        <a style="color: white;" href="">Terms of Use</a>
+    </div>
+</footer>
+<!-- footer section end here -->

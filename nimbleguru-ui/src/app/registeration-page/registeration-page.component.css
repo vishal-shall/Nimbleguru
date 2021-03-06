@@ -1,0 +1,20 @@
+.navbar{
+    justify-content: space-between;
+    
+}
+span{
+    margin-right: 1rem;
+}
+#bar1:focus{
+    outline:none;
+    }
+    #bar1:hover{
+        outline:none;
+        cursor: pointer;
+        }
+footer {
+    background: teal;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}

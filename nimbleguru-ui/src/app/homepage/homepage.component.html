@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+<!-- Header section start here -->
+<header>
+    <mat-toolbar color="primary" class="navbar">
+
+        <span routerLink="" id="bar1" style="width: 30%;"><img src="/assets/img/header.png" width="50px"
+                height="50px">Nimbleguru</span>
+                <span style="font-size: 70%;">{{name}} 
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger id="abc">
+                    <div
+                        style="width: 40px; height: 40px;background-color:#95DBEF ; border-radius: 20px; margin-right: 12px;">
+            
+                        <div style="font-size: 17px; padding: 7px; padding-top: 3px; color: black;">{{avatar}}</div>
+                    </div>
+                </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item id="Profile" routerLink="/student-profile">Profile</button>
+                <button mat-menu-item routerLink="/" (click)="Logout()">Logout</button>
+
+            </mat-menu>
+        </span>
+        <!-- <span style="float: right;margin-left: 78%;">{{name}}</span><i class="fa fa-user-circle fa-2x" routerLink="/student-profile" id="circle"></i>     -->
+        <!-- <button mat-raised-button color="accent" routerLink="/login" (click)="Logout()">Logout</button> -->
+    </mat-toolbar>
+</header>
+<!-- Header section end here -->
+
+<!-- Maim section start here -->
+
+<body>
+
+    <mat-grid-list cols=1 rowHeight="90%">
+        <mat-grid-tile>
+            <mat-card style="background-color:white ; padding: 5rem; ">
+                <div class="video-player-wrapper">
+                    <header>
+                        <h1 style="font-weight:600;font-size: 300%; margin-bottom: 30px;">Live Doubts</h1>
+                        <h4 style="font-size: 100%;">Get Your Doubts Solved Instantly</h4>
+                    </header>
+                    <section>
+
+                        <div class="example-button-row">
+                            <mat-form-field appearance="outline" >
+                                <mat-label style="width: 600px;">Select Subject</mat-label>
+                                <mat-select (selectionChange)="selectedSubject($event)">
+                                    <mat-option *ngFor="let problem of problems" [value]="problem">
+                                        {{problem}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <br>
+
+                            <mat-form-field class="example-full-width" appearance="outline" style="width: 500px;">
+
+                                <textarea [(ngModel)]="str" id="str" matInput rows="5" cols="1000000" placeholder="Enter your Doubts" #doubts></textarea>
+                            </mat-form-field>
+
+
+                            <button class="bottomrow" mat-raised-button color="primary" style="margin-left: 16px" (click)="getBySubject()" [disabled]="doubts.value.length===0">Submit</button>
+                        </div>
+
+                        <!-- <br>
+                    <button mat-raised-button color="primary" style="margin-right: 16px" [disabled]="doubts.value.length===0">Schedule a mentor</button>
+                    <button mat-raised-button color="primary" routerLink="/dummychat"  [disabled]="doubts.value.length===0">Connect With A Mentor</button> -->
+                    </section>
+                </div>
+            </mat-card>
+        </mat-grid-tile>
+
+
+
+    </mat-grid-list>
+
+
+<!-- footer section start here -->
+<footer style="color: white;">
+    <div>Copyright © Sergbo All rights reserved.</div>
+    <div>
+        <a style="color: white;" href="">Privacy Statement </a>
+        <a style="color: white;" href="">Terms of Use</a>
+    </div>
+</footer>
+<!-- footer section end here -->
+<!-- <app-faq-by-subject [parentData]="subject"></app-faq-by-subject> -->
+</body>
